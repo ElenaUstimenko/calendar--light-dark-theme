@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true, 
+    // чтобы использовать все современные фишки языка ESNext (также можно конкретную писать версию => ES6, ES5...)
+    "module": "ESNext", 
+    // в какую версию код будет компилироваться, es5 поддерживают все браузеры, даже самые старые
+    // код будет работать во всех браузерах
+    "target": "es5", 
+    "jsx": "react", // мы будем писать функции, которые отдают разметку
+    "allowJs": true, // настройка, которая позволяет обрабатывать JS и TS файлы
+    "moduleResolution": "node", // в 99% случаев используется "node"
+    // вместо * as webpack можем писать import webpack, т.к. не все либы поддерживают export default
+    "allowSyntheticDefaultImports": true, 
+    // позволяем работать с пакетами через import/export вместо require (commonJS)
+    "esModuleInterop": true 
+  },
+  "ts-node": {
+    "compilerOptions": {  // опции приведения одного формата в другой
+      "module": "CommonJS" // синтаксис из es5, т.е. для большинства браузеров
+    }
+  }
+}

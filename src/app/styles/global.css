@@ -27,7 +27,7 @@
   --background-color-calendar-header: #ffffff;
 
   /* images */
-  --images-arrow: url('../images/arrow.svg');
+  --images-arrow: url('../images/arrow-blue.svg');
   /* spacing */
   /* text */
 }
@@ -42,7 +42,7 @@
   --background-color-calendar-header: rgb(136, 202, 252);
 
   /* images */
-  --images-arrow: url('../images/arrow_white.svg');
+  --images-arrow: url('../images/arrow-white.svg');
   /* spacing */
   /* text */
 }
@@ -57,7 +57,7 @@
   --background-color-calendar-header: #575c63;
 
   /* images */
-  --images-arrow: url('../images/arrow.svg');
+  --images-arrow: url('../images/arrow-blue.svg');
   /* spacing */
   /* text */
 }

@@ -1,4 +1,4 @@
-# **Calendar + Light/Dark theme**  
+# **Calendar + Light/Dark theme**
 
 
 ---
@@ -6,15 +6,37 @@
 
 ✔️ Календарь (кастомный, без использования библиотек) на React & TypeScript
 
-
 ✔️ Настройка смены темы на React & TypeScript
 
 
 ---
 
+
 **Стек технологий**
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)   ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+
+
+---
+
+
+**Инфо**
+
+<p>Метод ```getDate()``` возвращает день месяца указанной даты по местному времени.</p>
+<p>Метод ```getDay()``` возвращает порядковый номер дня недели указанной даты по местному времени, где 0 соответствует воскресенью.</p>
+<p>Метод ```getFullYear()``` возвращает год указанной даты по местному времени.</p>
+<p>Метод ```getMonth()``` возвращает месяц указанной даты по местному времени, нумерация месяцев начинается с нуля для первого месяца в году.</p>
+<p>Метод ```getTime()``` возвращает числовое значение, соответствующее указанной дате по всемирному координированному времени.</p>
+
+
+<p>Метод ```toLocaleDateString()``` возвращает строку с языкозависимым представлением части с датой в этой дате. Новые аргументы locales и options позволяют приложениям определять язык, чьи соглашения по форматированию должны использоваться, а также менять поведение этого метода.</p>
+
+
+<p>Метод ```Math.ceil()``` - округление вверх. Округляет аргумент до ближайшего большего целого.</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 
 
 ---
@@ -22,15 +44,8 @@
 
 доделать по первой части:
 
-
-- components + utils 
-
-
 - стили на scss переделать
-
 
 - библиотеку classnames добавить ?
 
-
 - почитать про баг и исправить
-
