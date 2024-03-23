@@ -25,6 +25,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
+  settings: {
+    'import/ignore': ['react-native'],
+  },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     '@typescript-eslint/no-shadow': 0,

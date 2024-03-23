@@ -3,7 +3,7 @@ import React from 'react';
 import { checkDateIsEqual, checkIsToday } from '../../utils/date';
 import { useCalendar } from './hooks/useCalendar';
 
-import './Calendar.css';
+import styles from './Calendar.module.scss';
 
 interface CalendarProps {
   locale?: string; // на каком языке будет календарь
@@ -16,8 +16,9 @@ export const Calendar: React.FC<CalendarProps> = ({
   locale = 'default',
   selectedDate: date,
   selectDate,
-  firstWeekDayNumber = 2
+  firstWeekDayNumber = 2 // чтобы неделя начиналась с понедельника
 }) => {
+
   const { functions, state } = useCalendar({
     locale,
     selectedDate: date,
@@ -25,11 +26,11 @@ export const Calendar: React.FC<CalendarProps> = ({
   });
 
   return (
-    <div className="calendar">
-      <div className="calendar__header">
+    <div className={styles.calendar}>
+      <div className={styles.calendar__header}>
         <div
           aria-hidden
-          className="calendar__header__arrow__left"
+          className={styles.calendar__header__arrow__left}
           onClick={() => functions.onClickArrow('left')}
         />
         {state.mode === 'days' && (
@@ -55,19 +56,19 @@ export const Calendar: React.FC<CalendarProps> = ({
         )}
         <div
           aria-hidden
-          className="calendar__header__arrow__right"
+          className={styles.calendar__header__arrow__right}
           onClick={() => functions.onClickArrow('right')}
         />
       </div>
-      <div className="calendar__body">
+      <div className={styles.calendar__body}>
         {state.mode === 'days' && (
           <>
-            <div className="calendar__week__names">
+            <div className={styles.calendar__week__names}>
               {state.weekDaysNames.map(weekDaysName => (
                 <div key={weekDaysName.dayShort}>{weekDaysName.dayShort}</div>
               ))}
             </div>
-            <div className="calendar__days">
+            <div className={styles.calendar__days}>
               {state.calendarDays.map(day => {
                 const isToday = checkIsToday(day.date);
                 const isSelectedDay = checkDateIsEqual(
@@ -81,15 +82,16 @@ export const Calendar: React.FC<CalendarProps> = ({
                   <div
                     key={`${day.dayNumber}-${day.monthIndex}`}
                     aria-hidden
+                    // выбор дня
                     onClick={() => {
                       functions.setSelectedDay(day);
                       selectDate(day.date);
                     }}
                     className={[
-                      'calendar__day',
-                      isToday ? 'calendar__today__item' : '',
-                      isSelectedDay ? 'calendar__selected__item' : '',
-                      isAdditionalDay ? 'calendar__additional__day' : ''
+                      styles.calendar__day,
+                      isToday ? styles.calendar__today__item : '',
+                      isSelectedDay ? styles.calendar__selected__item : '',
+                      isAdditionalDay ? styles.calendar__additional__day : ''
                     ].join(' ')}
                   >
                     {day.dayNumber}
@@ -101,7 +103,7 @@ export const Calendar: React.FC<CalendarProps> = ({
         )}
 
         {state.mode === 'monthes' && (
-          <div className="calendar__pick__items__container">
+          <div className={styles.calendar__pick__items__container}>
             {state.monthesNames.map(monthesName => {
               const isCurrentMonth =
                 new Date().getMonth() === monthesName.monthIndex &&
@@ -113,14 +115,15 @@ export const Calendar: React.FC<CalendarProps> = ({
                 <div
                   key={monthesName.month}
                   aria-hidden
+                  // выбор месяца
                   onClick={() => {
                     functions.setSelectedMonthByIndex(monthesName.monthIndex);
                     functions.setMode('days');
                   }}
                   className={[
-                    'calendar__pick__item',
-                    isSelectedMonth ? 'calendar__selected__item' : '',
-                    isCurrentMonth ? 'calendar__today__item' : ''
+                    styles.calendar__pick__item,
+                    isSelectedMonth ? styles.calendar__selected__item : '',
+                    isCurrentMonth ? styles.calendar__today__item : ''
                   ].join(' ')}
                 >
                   {monthesName.monthShort}
@@ -131,8 +134,8 @@ export const Calendar: React.FC<CalendarProps> = ({
         )}
 
         {state.mode === 'years' && (
-          <div className="calendar__pick__items__container">
-            <div className="calendar__unchoosable__year">
+          <div className={styles.calendar__pick__items__container}>
+            <div className={styles.calendar__unchoosable__year}>
               {state.selectedYearsInterval[0] - 1}
             </div>
             {state.selectedYearsInterval.map(year => {
@@ -143,21 +146,22 @@ export const Calendar: React.FC<CalendarProps> = ({
                 <div
                   key={year}
                   aria-hidden
+                  // выбор года
                   onClick={() => {
                     functions.setSelectedYear(year);
                     functions.setMode('monthes');
                   }}
                   className={[
-                    'calendar__pick__item',
-                    isCurrentYear ? 'calendar__today__item' : '',
-                    isSelectedYear ? 'calendar__selected__item' : ''
+                    styles.calendar__pick__item,
+                    isCurrentYear ? styles.calendar__today__item : '',
+                    isSelectedYear ? styles.calendar__selected__item : ''
                   ].join(' ')}
                 >
                   {year}
                 </div>
               );
             })}
-            <div className="calendar__unchoosable__year">
+            <div className={styles.calendar__unchoosable__year}>
               {state.selectedYearsInterval[
                 state.selectedYearsInterval.length - 1
               ] + 1}

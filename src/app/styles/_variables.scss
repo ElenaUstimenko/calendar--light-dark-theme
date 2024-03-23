@@ -1,0 +1,8 @@
+:root {
+  --font-family-main: 'Arial', 'Roboto', Georgia, 'Times New Roman', Times, serif, 'Oxygen', 'Ubuntu',
+  'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  // анимация transition: <duration timing-fn>
+  --transition-duration: 0.3s;
+  --transition-timing-fn: ease-in-out;
+}
